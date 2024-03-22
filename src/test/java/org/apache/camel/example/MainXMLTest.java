@@ -99,4 +99,17 @@ class MainXMLTest extends CamelMainTestSupport {
         Assertions.assertEquals("after toD", resultExchange.getMessage().getBody(String.class));
     }
 
+    @Test
+    public void withUncaughtException() {
+        final ProducerTemplate producerTemplate = context.createProducerTemplate();
+
+        final Exchange resultExchange = producerTemplate.send("direct:start", exchange -> {
+            exchange.getIn().setBody("start");
+            exchange.setVariable("nextRoute", "withUncaughtException");
+        });
+
+        Assertions.assertNull(resultExchange.getVariable("targetVar"));
+        Assertions.assertEquals("uncaughtException", resultExchange.getMessage().getBody(String.class));
+    }
+
 }

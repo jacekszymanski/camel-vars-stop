@@ -86,4 +86,13 @@
         <throwException exceptionType="java.lang.IllegalStateException"/>
     </route>
 
+    <route id="withUncaughtException">
+        <from uri="direct:withUncaughtException"/>
+
+        <setBody>
+            <constant>uncaughtException</constant>
+        </setBody>
+        <throwException exceptionType="java.lang.IllegalStateException"/>
+    </route>
+
 </routes>
