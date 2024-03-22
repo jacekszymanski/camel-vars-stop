@@ -52,7 +52,6 @@ class MainXMLTest extends CamelMainTestSupport {
         final ProducerTemplate producerTemplate = context.createProducerTemplate();
 
         final Exchange resultExchange = producerTemplate.send("direct:start", exchange -> {
-            exchange.getIn().setBody("start");
             exchange.setVariable("nextRoute", "normalCompletion");
         });
 
@@ -65,7 +64,6 @@ class MainXMLTest extends CamelMainTestSupport {
         final ProducerTemplate producerTemplate = context.createProducerTemplate();
 
         final Exchange resultExchange = producerTemplate.send("direct:start", exchange -> {
-            exchange.getIn().setBody("start");
             exchange.setVariable("nextRoute", "withOnException");
         });
 
@@ -78,7 +76,6 @@ class MainXMLTest extends CamelMainTestSupport {
         final ProducerTemplate producerTemplate = context.createProducerTemplate();
 
         final Exchange resultExchange = producerTemplate.send("direct:start", exchange -> {
-            exchange.getIn().setBody("start");
             exchange.setVariable("nextRoute", "withStop");
         });
 
@@ -91,7 +88,6 @@ class MainXMLTest extends CamelMainTestSupport {
         final ProducerTemplate producerTemplate = context.createProducerTemplate();
 
         final Exchange resultExchange = producerTemplate.send("direct:start", exchange -> {
-            exchange.getIn().setBody("start");
             exchange.setVariable("nextRoute", "withOnExceptionContinued");
         });
 
@@ -104,7 +100,6 @@ class MainXMLTest extends CamelMainTestSupport {
         final ProducerTemplate producerTemplate = context.createProducerTemplate();
 
         final Exchange resultExchange = producerTemplate.send("direct:start", exchange -> {
-            exchange.getIn().setBody("start");
             exchange.setVariable("nextRoute", "withUncaughtException");
         });
 
